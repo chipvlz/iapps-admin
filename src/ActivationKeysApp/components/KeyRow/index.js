@@ -1,8 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import './styles.css';
 
-const KeyRow = ({data}) => {
+const KeyRow = ({setModalData, data}) => {
     return (
         <tr>
             <td>{data.id}</td>
@@ -26,7 +27,11 @@ const KeyRow = ({data}) => {
                             <td><button className="btn btn-danger btn-xs">Удалить</button></td>
                         </tr>
                         <tr>
-                            <td colSpan="2"><button className="btn btn-info btn-xs">Изменить</button></td>
+                            <td colSpan="2">
+                                <button onClick={() => {
+                                    setModalData(data)
+                                }} type="button" className="btn btn-info btn-xs" data-toggle="modal" data-target="#keysAppModal">Изменить</button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -35,4 +40,11 @@ const KeyRow = ({data}) => {
     );
 }
 
-export default KeyRow;
+export default connect(
+    (state) => ({}),
+    (dispatch) => ({
+        setModalData(data) {
+            dispatch({type: 'SET_MODAL_DATA', payload: data});
+        }
+    })
+)(KeyRow);

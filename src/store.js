@@ -10,7 +10,7 @@ import thunk from 'redux-thunk';
 import ActivationKeyAppReducer from './ActivationKeysApp/reducer';
 
 const store = createStore(combineReducers({
-    keys: ActivationKeyAppReducer
+    KeysApp: ActivationKeyAppReducer
 }), composeWithDevTools(applyMiddleware(thunk)));
 
 

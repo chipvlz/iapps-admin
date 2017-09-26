@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Table from './components/Table';
+import Modal from './components/Modal';
 
 import { loadKeysList } from './actions';
 
@@ -23,6 +24,7 @@ class ActivationKeysApp extends Component {
                         <Table />
                     </div>
                 </div>
+                <Modal />
             </div>
         );
     }
