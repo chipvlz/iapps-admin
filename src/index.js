@@ -1,8 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import StatusApp from './StatusApp';
+import KeyGenerationApp from './KeyGenerationApp';
+import ActivationKeysApp from './ActivationKeysApp';
+
+ReactDOM.render(<StatusApp />, document.getElementById('status-app'));
+ReactDOM.render(<KeyGenerationApp />, document.getElementById('key-generation-app'));
+ReactDOM.render(<ActivationKeysApp />, document.getElementById('activation-keys-app'));
+
 registerServiceWorker();

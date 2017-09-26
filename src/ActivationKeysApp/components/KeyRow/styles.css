@@ -1,0 +1,7 @@
+.cursor-pointer {
+    cursor: pointer;
+}
+
+ul.dlist small span {
+    white-space: nowrap;
+}
