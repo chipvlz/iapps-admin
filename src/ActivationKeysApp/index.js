@@ -1,8 +1,19 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import Table from './components/Table';
 
+import { loadKeysList } from './actions';
+
 class ActivationKeysApp extends Component {
+    
+    constructor(props) {
+        super(props);
+        
+        this.props.loadKeysList();
+
+    }
+
     render() {
         return (
             <div className="col-md-12 col-lg-12 col-sm-12">
@@ -17,4 +28,11 @@ class ActivationKeysApp extends Component {
     }
 }
 
-export default ActivationKeysApp;
+export default connect(
+    (state) => ({}),
+    (dispatch) => ({
+        loadKeysList() {
+            dispatch(loadKeysList());
+        }
+    })
+)(ActivationKeysApp);

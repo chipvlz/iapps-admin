@@ -11,8 +11,7 @@ const TableHeader = (props) => {
                 <th>Цена</th>
                 <th>Ссылка</th>
                 <th>Кол-во<br />девайсов</th>
-                <th>Активация</th>
-                <th>Удаление</th>
+                <th>Действия</th>
             </tr>
         </thead>
     );

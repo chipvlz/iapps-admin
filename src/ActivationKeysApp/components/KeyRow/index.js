@@ -1,37 +1,38 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class KeyRow extends Component {
-    render() {
-        return (
-            <tr>
-                <td>10</td>
-                <td><input type="text" value="c65f9eb08dc77aa7c5e5bf3b32053364" readOnly /></td>
-                <td><span className="text-success">Активно</span></td>
-                <td>2017-09-23 03:05:35</td>
-                <td>0(0)</td>
-                <td><a target="_blank" rel="noopener noreferrer" href="https://vk.com/f0x_ua">https://vk.com/f0x_ua</a></td>
-                <td className="cursor-pointer">
-                    <ul className="dlist">
-                        <li>
-                            <small><span>iPhone6,1: iPhone</span></small>
-                        </li>
-                        <li>
-                            <small><span>iPad5,3: iPad Fox</span></small>
-                        </li>
-                        <li>
-                            <small><span>iPhone6,1: iPhone Fox</span></small>
-                        </li>
-                    </ul>
-                </td>
-                <td>
-                    <button className="btn btn-danger btn-sm" href="disable.php?id=10">Отключить</button>
-                </td>
-                <td>
-                    <button className="btn btn-danger btn-sm" href="delete.php?id=10">Удалить</button>
-                </td>
-            </tr>
-        );
-    }
+import './styles.css';
+
+const KeyRow = ({data}) => {
+    return (
+        <tr>
+            <td>{data.id}</td>
+            <td><input type="text" value={data.code} readOnly /></td>
+            <td><span className={`text-${(Number(data.status) ? 'success' : 'danger')}`}>{(Number(data.status) ? 'Активно' : 'Неактивно')}</span></td>
+            <td>{data.date}</td>
+            <td>{data.price}({data.cnt})</td>
+            <td><a target="_blank" rel="noopener noreferrer" href={data.user_profile}>{data.user_profile}</a></td>
+            <td className="cursor-pointer">
+                <ul className="dlist">
+                    {data.devices && data.devices.trim().split('- \n').map((item, index) =>
+                        <li key={index}><small><span>{item}</span></small></li>
+                    )}
+                </ul>
+            </td>
+            <td>
+                <table className="buttons-table">
+                    <tbody>
+                        <tr>
+                            <td><button className="btn btn-danger btn-xs">Отключить</button></td>
+                            <td><button className="btn btn-danger btn-xs">Удалить</button></td>
+                        </tr>
+                        <tr>
+                            <td colSpan="2"><button className="btn btn-info btn-xs">Изменить</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    );
 }
 
 export default KeyRow;

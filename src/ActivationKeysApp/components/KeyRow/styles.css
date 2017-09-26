@@ -5,3 +5,15 @@
 ul.dlist small span {
     white-space: nowrap;
 }
+
+.buttons-table td {
+    padding: 3px;
+}
+
+.buttons-table td button {
+    width: 100%;
+}
+
+table.table > tbody > tr > td {
+    padding: 8px 0 2px 2px !important;
+}
