@@ -12,8 +12,8 @@ import store from './store';
 ReactDOM.render((
     <Provider store={store}>
         <div>
-            <StatusApp />
-            <KeyGenerationApp />
+            {/*<StatusApp />*/}
+            {/*<KeyGenerationApp />*/}
             <ActivationKeysApp />
         </div>
     </Provider>

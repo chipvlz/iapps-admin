@@ -1,12 +1,7 @@
 import React from 'react';
 
-import { connect } from 'react-redux';
 
-import {
-    updateKey
-} from '../actions.js'
-
-class Modal extends React.Component {
+export default class Modal extends React.Component {
     constructor(props) {
         super(props);
         
@@ -36,7 +31,7 @@ class Modal extends React.Component {
                                     </div>
                                     <div className="form-group">
                                         <label htmlFor="devices-num">Количество девайсов:</label>
-                                        <input key={key} defaultValue={this.props.data.cnt} type="number" id="devices-num" className="form-control" />
+                                        <input key={key} defaultValue={this.props.data.pay_count} type="number" id="devices-num" className="form-control" />
                                     </div>
                                     <div className="form-group">
                                         <label htmlFor="link">Ссылка на профиль:</label>
@@ -52,15 +47,3 @@ class Modal extends React.Component {
         return <div id="keysAppModal" className="modal fade" role="dialog"></div>;
     }
 }
-
-export default connect(
-    (state) => ({
-        data: state.KeysApp.modal
-    }),
-    (dispatch) => ({
-        updateKeyHandler(e) {
-            e.preventDefault();
-            dispatch(updateKey(e));
-        }
-    }),
-)(Modal);
