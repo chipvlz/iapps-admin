@@ -8,7 +8,7 @@ const TableHeader = (props) => {
                 <th>Код</th>
                 <th>Статус</th>
                 <th>Дата активации</th>
-                <th>Цена</th>
+                <th>Продавец</th>
                 <th>Ссылка</th>
                 <th>Кол-во<br />девайсов</th>
                 <th>Действия</th>

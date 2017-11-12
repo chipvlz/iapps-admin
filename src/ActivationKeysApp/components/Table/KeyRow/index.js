@@ -19,7 +19,7 @@ class KeyRow extends React.Component {
                 <td><input type="text" value={this.props.data.code} readOnly /></td>
                 <td><span className={`text-${(Number(this.props.data.status) ? 'success' : 'danger')}`}>{(Number(this.props.data.status) ? 'Активно' : 'Неактивно')}</span></td>
                 <td>{this.props.data.date}</td>
-                <td>{this.props.data.price}({this.props.data.pay_count})</td>
+                <td>{this.props.data.seller}({this.props.data.pay_count})</td>
                 <td><a target="_blank" rel="noopener noreferrer" href={this.props.data.user_profile}>{this.props.data.user_profile}</a></td>
                 <td className="cursor-pointer">
                     <ul className="dlist">

@@ -8,8 +8,8 @@ class TableBody extends Component {
     render() {
         return (
             <tbody>
-                {this.props.keys.length ?
-                    this.props.keys.map((item, index) => <KeyRow key={index} data={item} />) :
+                {this.props.items.length ?
+                    this.props.items.map((item, index) => <KeyRow key={item.id} data={item} />) :
                     <tr><td colSpan="8" style={{textAlign: 'center'}}><img src="/Spinner.svg" alt=""/></td></tr>}
             </tbody>
         );
@@ -18,7 +18,7 @@ class TableBody extends Component {
 
 export default connect(
     (state) => ({
-        keys: state.KeysApp.keys
+        items: state.KeysApp.items
     }),
     (dispatch) => ({})
 )(TableBody);

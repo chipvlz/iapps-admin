@@ -2,12 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import registerServiceWorker from './registerServiceWorker';
 
-import StatusApp from './StatusApp';
-import KeyGenerationApp from './KeyGenerationApp';
+// import StatusApp from './StatusApp';
+// import KeyGenerationApp from './KeyGenerationApp';
 import ActivationKeysApp from './ActivationKeysApp';
 
 import { Provider } from 'react-redux';
 import store from './store';
+
+console.log('DEBUG');
 
 ReactDOM.render((
     <Provider store={store}>

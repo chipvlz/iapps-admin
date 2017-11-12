@@ -1,14 +1,23 @@
-export const loadKeysList = (page) => dispatch => {
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET', 'http://i98888jy.bget.ru/activation/api/getKeys.php');
-    xhr.onreadystatechange = () => {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            const json = JSON.parse(xhr.responseText);
-            console.log(json);
-            dispatch({type: 'LOAD_KEYS_LIST', payload: json.response})
-        }
+export const loadKeysList = (dispatch) => function(offset = 0) {
+    let dispatchType = 'LOAD_ALL_KEYS_LIST'
+    dispatch({type: 'SET_LOADING'})
+    let url = 'http://i98888jy.bget.ru/activation/api/getKeys.php';
+    console.log(offset);
+    if (offset > -1) {
+        url += '?offset=' + offset;
+        dispatchType = 'LOAD_KEYS_LIST';
     }
-    xhr.send();
+    fetch(url)
+        .then(response => response.json())
+        .then(json => {
+            console.log(json);
+
+            dispatch({type: dispatchType, payload: json.response});
+            dispatch({type: 'UNSET_LOADING'});
+        })
+        .catch(error => {
+            console.error(error);
+        });
 }
 
 
