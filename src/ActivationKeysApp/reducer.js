@@ -10,7 +10,7 @@ const initialState = {
 export default function ApplicationKeyAppReducer(state = initialState, {type, payload}) {
     if (type === 'ADD_KEY') {
         let newItems = [payload, ...state.items];
-        return {...state, items: newItems, maxCount: newItems.length};
+        return {...state, items: newItems, maxCount: state.maxCount + 1};
     } else if (type === 'LOAD_KEYS_LIST') {
         return {...state, items: [...state.items, ...payload.items], maxCount: payload.count};
     } else if (type === 'LOAD_ALL_KEYS_LIST') {

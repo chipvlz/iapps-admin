@@ -10,13 +10,15 @@ export const generateKey = (dispatch) => (e) => {
   fd.append('link', link.value);
 
   console.log(e.target, seller, pay_count, link, fd);
-
+  
+  dispatch({type: 'SET_GENERATING'});
   fetch('http://i98888jy.bget.ru/activation/api/keys/add.php', {
     method: 'POST',
     body: fd
   }).then(response => response.json()).then(json => {
     console.log('ADD_KEY', json.response);
     dispatch({type: 'ADD_KEY', payload: json.response});
+    dispatch({type: 'UNSET_GENERATING'});
     pay_count.value = '';
     link.value = '';
   });
