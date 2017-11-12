@@ -8,30 +8,13 @@ import {
 
 
 class EnableDisableButton extends Component {
-    constructor(props) {
-        super(props);
-
-        this.enableHandler = this.enableHandler.bind(this);
-        this.disableHandler = this.disableHandler.bind(this);
-    }
-
-    enableHandler(e) {
-        this.props.enableKey(this.props.id);
-        // alert('Enable: ' + this.props.id);
-    }
-
-    disableHandler(e) {
-        this.props.disableKey(this.props.id);
-        // alert('Disable: ' + this.props.id);
-    }
-
     render() {
         return (
             <div>
                 {this.props.status ?
-                    <button onClick={this.disableHandler} className="btn btn-danger btn-xs">Отключить</button>
+                    <button onClick={this.props.disableKey} className="btn btn-danger btn-xs">Отключить</button>
                     :
-                    <button onClick={this.enableHandler} className="btn btn-success btn-xs">Включить</button>
+                    <button onClick={this.props.enableKey} className="btn btn-success btn-xs">Включить</button>
                 }
             </div>
         );
@@ -41,12 +24,8 @@ class EnableDisableButton extends Component {
 // export default EnableDisableButton;
 export default connect(
     (state) => ({}),
-    (dispatch) => ({
-        disableKey(id) {
-            dispatch(disableKey(id));
-        },
-        enableKey(id) {
-            dispatch(enableKey(id));
-        }
+    (dispatch, ownProps) => ({
+        disableKey: disableKey(dispatch, ownProps.id),
+        enableKey: enableKey(dispatch, ownProps.id),
     }),
 )(EnableDisableButton);

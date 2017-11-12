@@ -20,7 +20,7 @@ class ActivationKeysApp extends Component {
         return (
             <div className="col-md-12 col-lg-12 col-sm-12">
                 <div className="white-box">
-                    <h3 className="box-title">Активные коды доступа</h3>
+                    <h3 className="box-title">Активные коды доступа ({this.props.itemsCount}/{this.props.maxCount})</h3>
                     <div className="table-responsive text-center">
                         <Table />
                         <LoadMoreButton />
@@ -34,7 +34,8 @@ class ActivationKeysApp extends Component {
 
 export default connect(
     (state, ownProps) => ({
-        itemsCount: state.KeysApp.items.length
+        itemsCount: state.KeysApp.items.length,
+        maxCount: state.KeysApp.maxCount
     }),
     (dispatch, ownProps) => ({
         loadKeysList: loadKeysList(dispatch)

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import registerServiceWorker from './registerServiceWorker';
 
 // import StatusApp from './StatusApp';
-// import KeyGenerationApp from './KeyGenerationApp';
+import KeyGenerationApp from './KeyGenerationApp';
 import ActivationKeysApp from './ActivationKeysApp';
 
 import { Provider } from 'react-redux';
@@ -15,7 +15,7 @@ ReactDOM.render((
     <Provider store={store}>
         <div>
             {/*<StatusApp />*/}
-            {/*<KeyGenerationApp />*/}
+            {<KeyGenerationApp />}
             <ActivationKeysApp />
         </div>
     </Provider>

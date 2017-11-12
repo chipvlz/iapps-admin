@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import GenerationForm from './components/GenerationForm';
+import { loadSellers } from './actions';
+
 
 class KeyGenerationApp extends Component {
+    componentDidMount() {
+        this.props.loadSellers();
+        console.log('MOUNT!', this.props);
+    }
+
     render() {
         return (
             <div className="col-md-12 col-lg-12 col-sm-12">
@@ -15,4 +23,10 @@ class KeyGenerationApp extends Component {
     }
 }
 
-export default KeyGenerationApp;
+
+export default connect(
+    (state) => ({}),
+    (dispatch) => ({
+        loadSellers: loadSellers(dispatch),
+    }),
+)(KeyGenerationApp);
